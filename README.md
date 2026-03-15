@@ -47,6 +47,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **[Your Name]** - Game Developer
 
 ## 💖 Acknowledgments
-
+- [Card Framework](https://github.com/chun92/card-framework/) under MIT License
 - Thanks to [Kenney.nl](https://kenney.nl/) for the amazing game assets.
 - Thanks to the [Godot Engine](https://godotengine.org/) community for the awesome engine.

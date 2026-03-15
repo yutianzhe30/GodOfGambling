@@ -1,0 +1,45 @@
+{
+  "game_title": "赌神",
+  "main_menu": {
+    "new_game": "新游戏",
+    "continue": "继续游戏",
+    "settings": "设置",
+    "quit": "退出"
+  },
+  "gameplay": {
+    "bet": "下注",
+    "call": "跟注",
+    "raise": "加注",
+    "fold": "弃牌",
+    "check": "看牌",
+    "all_in": "梭哈",
+    "deal": "发牌",
+    "your_turn": "你的回合",
+    "opponent_turn": "对手回合"
+  },
+  "skills": {
+    "xray_vision": "透视眼",
+    "xray_vision_desc": "看穿对手的手牌",
+    "card_switch": "偷龙转凤",
+    "card_switch_desc": "与牌堆中的牌交换",
+    "mind_pressure": "心理施压",
+    "mind_pressure_desc": "降低对手气场"
+  },
+  "items": {
+    "chocolate": "巧克力",
+    "chocolate_desc": "恢复30点气场"
+  },
+  "ui": {
+    "money": "金钱",
+    "aura": "气场",
+    "bet_amount": "下注金额",
+    "pot": "底池",
+    "round": "回合"
+  },
+  "dialogues": {
+    "kai_pai": "开牌！",
+    "win": "你赢了！",
+    "lose": "你输了！",
+    "draw": "平局！"
+  }
+}

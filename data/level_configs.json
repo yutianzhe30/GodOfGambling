@@ -1,0 +1,40 @@
+{
+  "levels": [
+    {
+      "id": 1,
+      "name": "澳门街头",
+      "name_en": "Macau Streets",
+      "description": "高进初入赌坛，在澳门街头与陈小刀相遇",
+      "boss_id": "chen_xiaodao",
+      "boss_name": "陈小刀",
+      "starting_money": 1000,
+      "target_money": 5000,
+      "ante": 10,
+      "unlocks_skill": "xray_vision"
+    },
+    {
+      "id": 2,
+      "name": "豪华游轮",
+      "name_en": "Luxury Cruise",
+      "description": "登上豪华游轮，面对更加强大的对手",
+      "boss_id": "cruise_boss",
+      "boss_name": "龙五",
+      "starting_money": 2000,
+      "target_money": 10000,
+      "ante": 50,
+      "unlocks_skill": "card_switch"
+    },
+    {
+      "id": 3,
+      "name": "最终决战",
+      "name_en": "Final Showdown",
+      "description": "赌神之路的最终考验",
+      "boss_id": "final_boss",
+      "boss_name": "仇笑痴",
+      "starting_money": 5000,
+      "target_money": 50000,
+      "ante": 100,
+      "unlocks_skill": "mind_pressure"
+    }
+  ]
+}
