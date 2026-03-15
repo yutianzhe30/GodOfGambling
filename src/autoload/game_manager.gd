@@ -35,7 +35,7 @@ func _load_player_data() -> void:
 func start_new_game() -> void:
 	current_state = GameState.PLAYING
 	game_progress.reset()
-	SceneManager.change_scene("res://scenes/levels/level_01_street.tscn")
+	#SceneManager.change_scene("res://scenes/levels/level_01_street.tscn")
 
 
 func continue_game() -> void:
@@ -56,7 +56,7 @@ func resume_game() -> void:
 func quit_to_main_menu() -> void:
 	current_state = GameState.MAIN_MENU
 	get_tree().paused = false
-	SceneManager.change_scene("res://scenes/ui/main_menu.tscn")
+	#SceneManager.change_scene("res://scenes/ui/main_menu.tscn")
 
 
 func save_game() -> void:

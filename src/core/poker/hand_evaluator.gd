@@ -18,9 +18,9 @@ enum HandRank {
 
 class EvaluationResult:
 	var hand_rank: HandRank
-	var values: Array[int] = []  # 用于比较相同牌型的大小
-	
-	func _init(rank: HandRank, vals: Array[int] = []):
+	var values: Array = []  # 用于比较相同牌型的大小
+
+	func _init(rank: HandRank, vals: Array = []):
 		hand_rank = rank
 		values = vals
 	
@@ -42,7 +42,7 @@ class EvaluationResult:
 		return 0
 
 
-static func evaluate(cards: Array[Card]) -> EvaluationResult:
+static func evaluate(cards: Array) -> EvaluationResult:
 	if cards.size() != 5:
 		return EvaluationResult.new(HandRank.HIGH_CARD, [0])
 	
@@ -151,7 +151,7 @@ static func _get_key_by_value(dict: Dictionary, value) -> int:
 	return 0
 
 
-static func compare_hands(hand1: Array[Card], hand2: Array[Card]) -> int:
+static func compare_hands(hand1: Array, hand2: Array) -> int:
 	var result1 = evaluate(hand1)
 	var result2 = evaluate(hand2)
 	return result1.compare_to(result2)

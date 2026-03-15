@@ -12,8 +12,10 @@ var current_money: int = 0
 var current_aura: int = 100
 var max_aura: int = 100
 
-# 手牌
-var hand: Hand = Hand.new()
+# 手牌数据 (Array of CardData)
+var hand_cards: Array = []
+var hidden_card = null
+var visible_cards: Array = []
 
 # 当前下注
 var current_bet: int = 0
@@ -23,6 +25,9 @@ var has_folded: bool = false
 
 # 是否全押
 var is_all_in: bool = false
+
+# Visual hand container (from addon)
+var visual_hand = null
 
 
 func _ready():
@@ -34,28 +39,36 @@ func reset_for_round() -> void:
 
 
 func reset_round() -> void:
-	hand.clear()
-	hand.hidden_card = null
-	hand.visible_cards.clear()
+	hand_cards.clear()
+	hidden_card = null
+	visible_cards.clear()
 	current_bet = 0
 	has_folded = false
 	is_all_in = false
 
 
-func add_card(card: Card, is_hidden: bool = false) -> void:
-	hand.add_card(card, is_hidden)
+func add_card(card_data, is_hidden: bool = false) -> void:
+	hand_cards.append(card_data)
+	if is_hidden:
+		hidden_card = card_data
+	else:
+		visible_cards.append(card_data)
 
 
-func receive_card(card: Card, is_hidden: bool = false) -> void:
-	add_card(card, is_hidden)
+func receive_card(card_data, is_hidden: bool = false) -> void:
+	add_card(card_data, is_hidden)
 
 
-func remove_card(card: Card) -> bool:
-	return hand.remove_card(card)
+func get_hidden_card():
+	return hidden_card
 
 
-func get_hand_size() -> int:
-	return hand.size()
+func get_visible_cards() -> Array:
+	return visible_cards.duplicate()
+
+
+func get_hand_cards() -> Array:
+	return hand_cards.duplicate()
 
 
 func can_check(call_amount: int) -> bool:
@@ -107,4 +120,4 @@ func get_aura() -> int:
 
 
 func get_hand_evaluation() -> HandEvaluator.EvaluationResult:
-	return HandEvaluator.evaluate(hand.get_cards())
+	return HandEvaluator.evaluate(hand_cards)

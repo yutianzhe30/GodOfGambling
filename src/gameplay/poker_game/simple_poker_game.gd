@@ -4,7 +4,7 @@ class_name SimplePokerGame
 ## SimplePokerGame - 简化版牌局控制器
 ## 用于测试和演示的简化版本
 
-signal card_dealt(character: Character, card: Card, hidden: bool)
+signal card_dealt(character: Character, card_data, hidden: bool)
 signal winner_determined(winner: Character, amount: int)
 signal player_turn_started
 
@@ -17,14 +17,14 @@ enum BettingAction {
 }
 
 # 游戏状态
-var deck: Deck = null
+var deck = null
 var pot: int = 0
 var current_bet: int = 0
 
 # 玩家
 var player: Character = null
 var opponent: Character = null
-var all_players: Array[Character] = []
+var all_players: Array = []
 
 # 游戏进行中
 var is_game_active: bool = false
@@ -114,13 +114,13 @@ func player_action(action: BettingAction, amount: int = 0) -> void:
 			pass
 
 
-func get_player_visible_cards() -> Array[Card]:
+func get_player_visible_cards() -> Array:
 	if player:
-		return player.hand.get_visible_cards()
+		return player.get_visible_cards()
 	return []
 
 
-func get_opponent_visible_cards() -> Array[Card]:
+func get_opponent_visible_cards() -> Array:
 	if opponent:
-		return opponent.hand.get_visible_cards()
+		return opponent.get_visible_cards()
 	return []

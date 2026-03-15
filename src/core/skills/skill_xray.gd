@@ -5,7 +5,7 @@ class_name SkillXRay
 ## 看穿对手的隐藏牌
 
 var reveal_duration: float = 3.0
-var _revealed_card: Card = null
+var _revealed_card = null
 var _target: Character = null
 var _is_active: bool = false
 
@@ -20,8 +20,8 @@ func _apply_effect(user: Character, target) -> void:
 	
 	_target = target
 	# 尝试获取目标的底牌
-	if target.hand.hidden_card != null:
-		_revealed_card = target.hand.hidden_card
+	if target.get_hidden_card() != null:
+		_revealed_card = target.get_hidden_card()
 		_is_active = true
 		print("透视眼已激活！看到底牌: %s" % _revealed_card.get_display_name())
 
@@ -30,7 +30,7 @@ func is_active() -> bool:
 	return _is_active
 
 
-func get_revealed_card() -> Card:
+func get_revealed_card():
 	return _revealed_card
 
 

@@ -1,10 +1,10 @@
 extends RefCounted
 class_name Deck
 
-## Deck - 牌组
+## Deck - 牌组管理
 ## 管理一副扑克牌（洗牌、发牌）
 
-var cards: Array[Card] = []
+var cards: Array = []  # Array[CardData]
 var rng = RandomNumberGenerator.new()
 
 
@@ -15,9 +15,11 @@ func _init() -> void:
 
 func reset() -> void:
 	cards.clear()
-	for s in range(4):
+	# 创建52张牌，名称格式与JSON文件一致
+	var suits = [CardData.Suit.CLUBS, CardData.Suit.DIAMONDS, CardData.Suit.HEARTS, CardData.Suit.SPADES]
+	for s in suits:
 		for r in range(2, 15):
-			cards.append(Card.new(s, r))
+			cards.append(CardData.new(s, r))
 
 
 func shuffle() -> void:
@@ -28,23 +30,19 @@ func shuffle() -> void:
 		cards[j] = temp
 
 
-func draw() -> Card:
+func draw() -> Object:  # Returns CardData or null
 	if cards.is_empty():
 		return null
 	return cards.pop_back()
 
 
-func draw_n(n: int) -> Array[Card]:
-	var result: Array[Card] = []
+func draw_n(n: int) -> Array:
+	var result = []
 	for i in range(n):
 		var card = draw()
 		if card != null:
 			result.append(card)
 	return result
-
-
-func size() -> int:
-	return cards.size()
 
 
 func remaining() -> int:
@@ -55,9 +53,5 @@ func is_empty() -> bool:
 	return cards.is_empty()
 
 
-func draw_card() -> Card:
-	return draw()
-
-
-func draw_cards(n: int) -> Array[Card]:
-	return draw_n(n)
+func size() -> int:
+	return cards.size()

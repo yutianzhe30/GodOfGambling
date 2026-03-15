@@ -34,7 +34,7 @@ var current_phase: GamePhase = GamePhase.SETUP
 var current_round: int = 0
 var pot: int = 0
 var deck: Deck = Deck.new()
-var community_cards: Array[Card] = []
+var community_cards: Array[CardData] = []
 
 # 参与者
 var player: Player = null
